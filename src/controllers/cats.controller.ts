@@ -1,9 +1,11 @@
 import { Controller, Get, Req, Post, HttpCode, Header, Param, Body, Put, Delete, Res, HttpStatus } from "@nestjs/common";
 import { Observable, of } from "rxjs";
 import { CreateCatDto } from "DTOs/create-cat.dto";
+import { CatsService } from "./cats.service";
 
 @Controller('cats')
 export class CatsController{
+    constructor(private catService:CatsService) {}
     // @Post()
     // create(@Res() res) {
     //   res.status(HttpStatus.CREATED).send();
@@ -15,7 +17,7 @@ export class CatsController{
     // }
     @Get()
     async findAll(): Promise<any>{
-        return [];
+        return this.catService.getCats();
     }
 
     @Post()
