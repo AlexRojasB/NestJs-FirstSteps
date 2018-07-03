@@ -16,8 +16,8 @@ export class CatsController{
     //    res.status(HttpStatus.OK).json([]);
     // }
     @Get()
-    async findAll(): Promise<any>{
-        return this.catService.getCats();
+    async findAll(): Promise<CreateCatDto[]>{
+        return this.catService.findAll();
     }
 
     @Post()
