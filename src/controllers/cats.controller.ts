@@ -24,7 +24,7 @@ export class CatsController{
    // @HttpCode(204)//custom http code
    // @Header('Cache-Control', 'none') //custom header response
     async create(@Body() createCatDto:CreateCatDto){
-        return await this.catService.create(createCatDto);
+        return await this.catService.createCat(createCatDto);
     }
 
     @Get(':id')
